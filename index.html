@@ -1,0 +1,151 @@
+<html>
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+
+    <body>
+        <div class="contenedor">
+        <div class="pantalla">
+            <textarea  id="contenido" disabled></textarea>
+        <!--ÁREA DE TEXTO PARA INGRESAR NÚMEROS-->
+        </div>
+        
+            <div class=botones>
+            <table class="tabla">
+            <tr>      
+                <td><button id="masmenos" style="color:#BEBEBE; background-color:#4D4D4D" onclick="masmenos()">+ -</button></td>
+                <td><button id="parentesis1" style="color:#BEBEBE; background-color:#4D4D4D" onclick="char(document.getElementById('contenido'),'(')">(</button></td>
+                <td><button id="parentesis1" style="color:#BEBEBE; background-color:#4D4D4D" onclick="char(document.getElementById('contenido'),')')">)</button></td>
+                <td><button style="background-color:#4D4D4D" onclick="estrella(document.getElementById('contenido'),'acordeon.html')"><img src="star.png"></button></td>
+                    
+            </tr>
+                
+            <tr>
+                <td><button style="color:black; background-color:#F5F5F5" onclick="char(document.getElementById('contenido'),'7')">7</button></td>
+                <td><button style="color:black; background-color:#F5F5F5" onclick="char(document.getElementById('contenido'),'8')">8</button></td>
+                <td><button style="color:black; background-color:#F5F5F5" onclick="char(document.getElementById('contenido'),'9')">9</button></td>
+                <td><button style="color:white; background-color:#337EFE" onclick="char(document.getElementById('contenido'),'/')">/</button></td>
+                    
+            </tr>
+            
+            <tr>
+                <td><button style="color:black; background-color:#F5F5F5" onclick="char(document.getElementById('contenido'),'4')">4</button></td>
+                <td><button style="color:black; background-color:#F5F5F5" onclick="char(document.getElementById('contenido'),'5')">5</button></td>
+                <td><button style="color:black; background-color:#F5F5F5" onclick="char(document.getElementById('contenido'),'6')">6</button></td>
+                <td><button style="color:white; background-color:#337EFE" onclick="char(document.getElementById('contenido'),'*')">x</button></td>
+                       
+            </tr> 
+                
+            <tr>
+                <td><button style="color:black; background-color:#F5F5F5" onclick="char(document.getElementById('contenido'),'1')">1</button></td>
+                <td><button style="color:black; background-color:#F5F5F5" onclick="char(document.getElementById('contenido'),'2')">2</button></td>
+                <td><button style="color:black; background-color:#F5F5F5" onclick="char(document.getElementById('contenido'),'3')">3</button></td>
+                <td><button style="color:white; background-color:#337EFE" onclick="char(document.getElementById('contenido'),'-')">-</button></td>
+               
+            </tr>     
+                
+            <tr>
+                <td><button style="color:black; background-color:#F5F5F5" onclick="char(document.getElementById('contenido'),'0')">0</button></td>
+                <td><button style="color:black; background-color:#F5F5F5" onclick="char(document.getElementById('contenido'),'.')">.</button></td>
+                    </div>
+                <td><button style="color:black; background-color:#F5F5F5" onclick="char(document.getElementById('contenido'),'%')">%</button></td>
+                <td ><button class="suma" style="color:white; background-color:#337EFE" onclick="char(document.getElementById('contenido'),'+')">+</button></td>
+            </tr> 
+                <tr>
+                <td><button style="color:white; background-color:#971F28" onclick="borrar(document.getElementById('contenido'))">C</button></td>
+                <td><button style="color:white; background-color:#E5282E" onclick="borrarelemento()">CE</button></td>
+                <td colspan="2"><button class="igual" style="color:white; background-color:#FE8826" onclick="igual()">=</button></td>
+            </tr> 
+            </table>
+    </div>
+    </div>
+                
+    
+    </body>
+    
+<script>
+   
+    contenido = localStorage.getItem('contenido');
+    
+    //contenido = document.getElementById('contenido').value;
+    
+    //if(localStorage.getItem('contenido')){
+        //var contenido = localStorage.getItem('contenido');
+
+    
+   function borrar(input){
+    var texto = " ";
+    input.value= texto;
+    contenido = input;
+    
+}     
+    
+    function masmenos(){
+    if(document.getElementById('contenido').value.substring(0, 1) == "-")
+	document.getElementById('contenido').value = document.getElementById('contenido').value.substring(1, document.getElementById('contenido').value.length)
+    else
+	document.getElementById('contenido').value = "-" + document.getElementById('contenido').value
+}
+
+    /*function cero(){
+    var texto = 0;
+    if(contenido!=" "){
+     contenido = document.getElementById('contenido').value;  
+    document.getElementById('contenido').value = contenido + texto;
+    contenido = document.getElementById('contenido').value;
+    }
+    else{
+    document.getElementById('contenido').value= texto;
+    contenido = document.getElementById('contenido');
+    }
+}   */
+    
+    function borrarelemento(){
+	document.getElementById('contenido').value = document.getElementById('contenido').value.substring(0, document.getElementById('contenido').value.length-1)
+}
+    
+    function char(input,texto){
+    if(input.value!=" "){ 
+    input.value += texto;
+    }
+    else{
+    input.value = texto;
+    }
+}
+    
+    function estrella(input,liga){
+        if(input.value=='0007'){
+            window.location.assign(liga);
+            navigator.vibrate('3000');
+        }
+        
+    }
+   
+    
+//OPERACIONES
+    //SUMA
+    /*function suma(){
+       var texto = "+";
+    if(contenido!=" "){
+     contenido = document.getElementById('contenido').value;  
+    document.getElementById('contenido').value = contenido + texto;
+    contenido = document.getElementById('contenido').value;
+    }
+    else{
+    document.getElementById('contenido').value= " ";
+    contenido = document.getElementById('contenido');
+    } 
+    }
+    */
+    
+    function igual(){
+        document.getElementById('contenido').value = eval(document.getElementById('contenido').value)
+        cont = document.getElementById('contenido').value 
+    }
+    
+    
+</script>
+
+</html>

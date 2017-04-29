@@ -1,0 +1,39 @@
+<html>
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="acordeon.css">
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
+    </head>
+    
+<body>
+    <div class="pantalla">
+    <textarea placeholder="Ingresa texto aquí..." id="contenido"></textarea>
+        <button onclick="guardar()" class="guardar">Guardar</button>
+        <button onclick="regresar('index.html')" class="regresar">Regresar</button>
+    </div>
+    </body>
+
+    <script>
+    
+    function guardar(){
+        contenido = document.getElementById('contenido').value;
+        localStorage.setItem('cont',contenido);
+    }
+        
+    window.addEventListener('load', cargar,true);    
+        
+        function cargar(){
+            
+            contenidoguardado = localStorage.getItem('cont');
+            document.getElementById('contenido').value = contenidoguardado;
+        }
+        
+        function regresar(liga){
+            window.location.assign(liga);
+            
+        }
+        
+    </script>
+    
+</html>

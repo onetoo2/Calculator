@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI";
+}
+.contenedor{
+    height: 100%;
+    width: 100%;
+}
+
+textarea{
+    font-size: 4em;
+    width: 100%;
+    color:white;
+    text-align: right;
+    margin-right: 15px;
+    resize: none;
+    background-color: black;
+    height: 155px;
+}
+
+.tabla {
+    margin-top: 0px;
+    width: 100%;
+    height: calc(100% - 155px);
+    text-align: center;
+    border-collapse: collapse;
+     /*border-collaspe es para quitar espaciado entre elementos de la tabla*/
+}
+
+
+.tabla td{
+    width: calc(100%/4);
+    /*border: 1px solid black;*/
+    border-collapse: collapse;
+}
+
+.tabla button{
+    width: 100%;
+    height: 100%;
+    font-size: 1.5em;
+    border: none;
+}
+.tabla button>img{
+    max-height: 37px;
+    margin-top: 0px;
+    opacity: 2;
+    -webkit-filter:invert(80%) ! important;
+}
+.tabla button:active{
+    opacity: .9;
+    font-size: 1.3em;
+    background-color: #2B3E55;
+}
+
+
+/*.tabla .igual{
+    width: 200%;
+    
+}*/
+
+
+
+
+
+
